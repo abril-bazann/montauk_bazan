@@ -1,0 +1,21 @@
+{% extends "app_montauk/padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://i.blogs.es/0ba1d8/imagen-interstellar/1366_2000.jpeg');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Montauk Blog</h1>
+    <span class="subheading">Mirá lo que dicen los demás sobre tus películas favoritas y compartí lo tuyo.</span>  
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2>{{ mensaje }}</h2>
+    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+        {{ form.as_p }} 
+        <!--p:parrafo vs table:tabla-->
+        <button type="submit">Iniciar sesión</button>
+    </form>
+    
+{% endblock %}

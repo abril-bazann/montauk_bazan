@@ -1,0 +1,21 @@
+{% extends "app_montauk/padre.html" %}
+{% load static %}
+
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://cinematicos.net/wp-content/uploads/bb5e35b2-4503-465f-a055-e6c5f6b1e4e1-drive-movie-wallpaper.jpeg');">     
+{% endblock %}
+{% block titulo %}
+   <h1>Registrate en Montauk</h1> 
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h1>Ingresá tus datos</h1>
+<h2>{{ mensaje }}</h2>
+    <form action="{% url 'register' %}" method="POST"> {% csrf_token %}
+        {{ form.as_p }} 
+        <!--p:parrafo vs table:tabla-->
+        <button type="submit">Registrate</button>
+    </form>
+    
+{% endblock %}

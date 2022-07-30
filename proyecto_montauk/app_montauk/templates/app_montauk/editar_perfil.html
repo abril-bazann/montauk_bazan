@@ -1,0 +1,18 @@
+{% extends "app_montauk/padre.html" %}
+{% load static %}
+{% block titulo %}
+   <h1>Editar perfil</h1>
+{% endblock %}
+{% block contenido_que_cambia %}
+<h1>Editar perfil: {{ usuario }}</h1>
+
+
+    <form action="{% url 'editar_perfil' %}" method="POST"> {% csrf_token %}
+        
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="submit" value="Editar perfil">
+
+    </form>
+{% endblock %} 
