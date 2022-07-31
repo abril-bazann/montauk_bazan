@@ -12,4 +12,36 @@
 {% endblock %}
 
 {% block contenido_que_cambia %}
+<h2 class="mensaje_login">{{ mensaje }}</h2> 
+<h3 class="h2_carousel">Últimas películas agregadas:</h3>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+     <div class="carousel-item active">
+       <img class="little_women" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRevp_5OKk0Ecx3-jwJsv6whu0iUtjFruqMtN_THYg-yoxwNR-_" class="d-block w-100" alt="...">
+     </div>
+     <div class="carousel-item">
+       <img class="forrest" src="https://pics.filmaffinity.com/Forrest_Gump-212765827-large.jpg" class="d-block w-100" alt="...">
+     </div>
+     <div class="carousel-item">
+       <img class="truman" src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/1372b1f835edc8dc24851b9f5c749dfcba767dc1e009f23605cd357fb2fb32c4._RI_V_TTW_.jpg" class="d-block w-100" alt="...">
+     </div>
+     <div class="carousel-item">
+      <img class="interestellar" src="https://static.wikia.nocookie.net/doblaje/images/2/29/1921258_615304598555527_3845710957502188196_o.jpg/revision/latest?cb=20141006185159&path-prefix=es" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="before_sunrise" src="https://pics.filmaffinity.com/Antes_de_amanecer-227513298-large.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="black_phone" src="https://pics.filmaffinity.com/Black_Phone-710559267-large.jpg" class="d-block w-100" alt="...">
+    </div>
+   </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Previous</span>
+   </button>
+   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Next</span>
+   </button>
+ </div>
 {% endblock %}

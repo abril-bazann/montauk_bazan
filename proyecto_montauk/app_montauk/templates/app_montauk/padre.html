@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Montauk</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/proyecto_montauk/app_montauk/static/app_montauk/assets/ico.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -37,9 +37,8 @@
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"  class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"  class="btn btn-primary" href="{% url 'register' %}">Registrate</a></li>
                         {% else %}
-                            <img src="{{ imagen }}" alt="img">
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"  class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
-                            <p>Holis {{ request.user.username }}</p>
+                            <img class="img_avatar" src="{{ imagen }}" alt="img">
                         {% endif %}
                         </li>
                     </ul>

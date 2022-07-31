@@ -1,0 +1,67 @@
+.bienvenida{
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:initial;
+    color: aliceblue;
+}
+
+.img_avatar{
+    width: 1rem;
+    height: 1rem;
+    margin: 0.5rem;
+}
+
+.h2_carousel{
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:uppercase;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.carousel-item{
+    width: 40%;
+    margin: 1rem;
+    
+}
+
+.little_women, .forrest, .truman, .interestellar, .before_sunrise, .black_phone{
+    width: 20rem;
+}
+
+.carousel{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.mini_recomendaciones{
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:uppercase;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.mensaje_login{
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:initial;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}

@@ -38,7 +38,7 @@ def login_request(request):
             usuario= authenticate(username=client, password=clave)
             if usuario is not None:
                 login(request, usuario)
-                return render(request, "app_montauk/inicio.html", {"mensaje":f"Te doy la bienvenida {usuario}"})
+                return render(request, "app_montauk/inicio.html", {"mensaje":f"Hola {usuario} !"})
             else:
                 return render(request, "app_montauk/inicio.html", {"mensaje":"Error; datos incorrectos"})
         else:
