@@ -1,17 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #15181d;
+    backdrop-filter: blur(10px)
+}
+/* post.html */
+.articulo{
+    background-color: #fffefe;
+    color: #556776;
+}
+
+.post-preview a, .post-preview p{
+    color: #fffefe;
+
+}
+
 .bienvenida{
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.0625em;
     text-transform:initial;
-    color: aliceblue;
+    color: #556776;
 }
 
+/* avatar */
 .img_avatar{
     width: 1rem;
     height: 1rem;
     margin: 0.5rem;
 }
 
+/* carousel */
 .h2_carousel{
     font-size: 2rem;
     font-weight: 800;
@@ -20,6 +42,7 @@
     display: grid;
     align-content: center;
     justify-content: center;
+    color: #fffefe;
 }
 
 .carousel-item{
@@ -45,6 +68,7 @@
     margin-left: 0;
 }
 
+/* mini recomendaciones de about.html*/
 .mini_recomendaciones{
     font-size: 1rem;
     font-weight: 800;
@@ -53,8 +77,15 @@
     display: grid;
     align-content: center;
     justify-content: center;
+    color: #fffefe;
 }
 
+/* about.html*/
+.about_me{
+    color: #556776;
+}
+
+/* mensaje de bienvenida cuando te logueas*/
 .mensaje_login{
     font-size: 1rem;
     font-weight: 800;
@@ -64,4 +95,129 @@
     align-content: center;
     justify-content: center;
     margin-bottom: 1rem;
+    color: #fffefe;
+}
+
+/* peliculas agregadas recientemente inicio.html*/
+.peliculas_h1{
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:uppercase;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: #fffefe;
+}
+
+.span_peliculas{
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.0625em;
+    text-transform:inherit;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: #fffefe;
+}
+
+/* form login en login.html*/
+.form_login{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 40px;
+    background: #15181d;
+    text-align: center;
+    color: #fffefe;
+}
+
+.form-text{
+    color: #fffefe;
+}
+
+.form_login input{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fffefe;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #fffefe;
+    border-radius: 20px;
+}
+
+/* botones submit */
+.btn-primary{
+    background-color: black;
+    border-color: black;
+}
+
+.form-text{
+    margin-top: 2rem;
+}
+
+/* form register */
+.form_register{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 40px;
+    background: #15181d;
+    text-align: center;
+}
+
+.form_register input{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fffefe;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #fffefe;
+    border-radius: 20px;
+    
+}
+
+.form_register p{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #fffefe;
+
+}
+
+
+.datos h2{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fffefe;
+    padding: 14px 10px;
+    width: 350px;
+    outline: none;
+    color: #fffefe;
+    border-radius: 20px;
+}
+
+/* cards de inicio y about */
+.card{
+    width: 95%;
 }

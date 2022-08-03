@@ -5,17 +5,22 @@
 {% endblock %}
 {% block titulo %}
 
-   <h1>Montauk Blog</h1>
-    <span class="subheading">Mirá lo que dicen los demás sobre tus películas favoritas y compartí lo tuyo.</span>  
+   <h1>Login</h1>
+
     </header>
 {% endblock %}
 
 {% block contenido_que_cambia %}
-<h2>{{ mensaje }}</h2>
-    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+<div class="mb-3">
+    <h2>{{ mensaje }}</h2>
+    <form class="form_login" action="{% url 'login' %}" method="POST"> {% csrf_token %}
         {{ form.as_p }} 
         <!--p:parrafo vs table:tabla-->
-        <button type="submit">Iniciar sesión</button>
+        <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+        <div id="emailHelp" class="form-text">Acá no compartimos tu correo electrónico con nadie más.</div>
     </form>
+    
+</div>
+
     
 {% endblock %}
