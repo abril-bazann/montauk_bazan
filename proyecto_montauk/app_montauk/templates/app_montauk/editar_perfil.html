@@ -10,8 +10,6 @@
 
 {% block contenido_que_cambia %}
 <h2 class="h2_editar_perfil">Editar perfil: {{ usuario }}</h2>
-
-
     <form class="form_editar_perfil" action="{% url 'editar_perfil' %}" method="POST"> {% csrf_token %}
         
         <table>
