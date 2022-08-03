@@ -221,3 +221,47 @@ body{
 .card{
     width: 95%;
 }
+
+.h2_editar_perfil{
+    color: #fffefe;
+    text-align: center;
+
+}
+
+.form_editar_perfil{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 40px;
+    background: #15181d;
+    text-align: center;
+}
+
+.form_editar_perfil input{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fffefe;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #fffefe;
+    border-radius: 20px;
+}
+
+
+.form_editar_perfil label{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #fffefe;
+}
