@@ -321,3 +321,27 @@ body{
     font-weight: 800;
     letter-spacing: 0.0625em;
 }
+
+/*post form*/
+
+
+.div_regresar, .div_nuevo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.div_regresar a, .div_nuevo a{
+    margin-bottom: 1rem;
+}
+
+/*post list*/
+mark{
+    background-color: #61a4b7;
+    color: #15181d;
+}
+
+

@@ -1,0 +1,34 @@
+{% extends "app_montauk/padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://pyxis.nymag.com/v1/imgs/4a9/49e/b462ba92f8a141b58c7f3f855ab47a2c6f-jodie-2.rhorizontal.w1100.jpg');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Posts Montauk</h1>
+
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+{% for post in object_list %}
+<div class="div_post_list">
+    <ul class="ul_post_list" style="color: #fffefe; list-style: none;">
+        <li style="color: #fffefe; border-bottom: 1px solid #456;letter-spacing: .075em;
+        margin-bottom: 0.76923077rem;margin-top: 0; padding-bottom: 5px; text-transform: initial;">
+        <a href="{% url 'Detail' post.id %}" style="color: #fffefe;"><i class="bi bi-arrow-right-short">&#x2192</i>{{ post }}</a>
+        <p>
+            <a style="color: #bee1fd;" href="{% url 'Edit' post.id %}">Edit</a>
+            <a style="color: #bee1fd;" href="{% url 'Delete' post.id %}">Delete</a>
+        </p>
+        </li>
+    </ul>
+</div>
+
+{% endfor %}
+
+<div class="div_nuevo">
+    <a class="btn btn-primary" href="{% url 'Create' %}">Crear un post nuevo</a>
+</div>
+
+{% endblock %}

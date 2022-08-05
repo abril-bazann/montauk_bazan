@@ -3,12 +3,12 @@ import email
 from wsgiref.util import request_uri
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from app_montauk.models import Avatar
+from app_montauk.models import Avatar, Blog
 from django.http import HttpResponse
 from django.template import Context, Template, loader
 from datetime import datetime
 import datetime
-from app_montauk.forms import UserRegisterForm, UserEditForm, AvatarForm
+from app_montauk.forms import UserRegisterForm, UserEditForm, AvatarForm #Blog_form
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -18,6 +18,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def inicio(request):
     return render(request, "app_montauk/inicio.html")
+
+def ver_posts(request):
+    return render(request, "app_montauk/ver_posts.html")
+
+def posts_viejos(request):
+    return render(request, "app_montauk/posts_viejos.html")
 
 def about(request):
     return render(request, "app_montauk/about.html")
@@ -58,6 +64,9 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'app_montauk/registro.html', {'form': form})
 
+def post(request):
+    return render(request, "app_montauk/post_detalle.html")
+
 @login_required
 def editar_perfil(request):
     usuario=request.user
@@ -95,3 +104,25 @@ def agregar_avatar(request):
     return render(request, 'app_montauk/agregar_avatar.html', {'formulario':formulario, 'usuario':request.user})
 
 
+class post_list(ListView, LoginRequiredMixin):
+    model=Blog
+    template_name="app_montauk/post_list.html"
+
+class post_detalle(DetailView, LoginRequiredMixin):
+    model= Blog
+    template_name= "app_montauk/post_detalle.html"
+
+class post_creacion(CreateView, LoginRequiredMixin):
+    model=Blog
+    success_url= reverse_lazy('List') #reverse_lazy: a donde va a ir cuando termine la creacion
+    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen']
+
+class post_update(UpdateView, LoginRequiredMixin):
+    model=Blog
+    success_url= reverse_lazy('List') #reverse_lazy: a donde va a ir cuando termine la creacion
+    fields=['titulo', 'subtitulo', 'cuerpo', 'autor', 'fecha', 'imagen']
+
+class post_delete(DeleteView, LoginRequiredMixin):
+    model=Blog
+    success_url= reverse_lazy('List') 
+    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen']

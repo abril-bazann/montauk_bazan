@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 
 class Blog_form(forms.Form):
     titulo= forms.CharField(max_length=50)
-    subtítulo= forms.CharField(max_length=50)
-    cuerpo= forms.CharField(max_length=50) 
+    subtitulo= forms.CharField(max_length=50)
+    cuerpo= forms.CharField(widget=forms.Textarea) 
     autor= forms.CharField(max_length=50) 
     fecha=forms.DateField()
-    imagen= forms.ImageField(label="Imagen_blog")
+    imagen= forms.ImageField(label="Imagen", required=False)
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
