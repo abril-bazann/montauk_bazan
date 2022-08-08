@@ -3,12 +3,12 @@ import email
 from wsgiref.util import request_uri
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from app_montauk.models import Avatar, Blog
+from app_profiles.models import Avatar
 from django.http import HttpResponse
 from django.template import Context, Template, loader
 from datetime import datetime
 import datetime
-from app_montauk.forms import UserRegisterForm, UserEditForm, AvatarForm #Blog_form
+from app_profiles.forms import UserEditForm, AvatarForm 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -25,10 +25,10 @@ def agregar_avatar(request):
                 avatar_viejo.delete()
             avatar=Avatar(user=request.user, imagen=formulario.cleaned_data['imagen'])
             avatar.save()
-            return render(request, 'app_montauk/inicio.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
+            return render(request, 'inicio.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
     else:
         formulario=AvatarForm()
-    return render(request, 'app_montauk/agregar_avatar.html', {'formulario':formulario, 'usuario':request.user})
+    return render(request, 'agregar_avatar.html', {'formulario':formulario, 'usuario':request.user})
 
 @login_required
 def editar_perfil(request):
@@ -43,9 +43,9 @@ def editar_perfil(request):
             usuario.password1=informacion['password1']
             usuario.password2=informacion['password2']
             usuario.save()
-            return render(request, 'app_montauk/inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
+            return render(request, 'inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
     #en caso de q no sea post
     else:
         #creo form con los datos que voy a modificar
         formulario=UserEditForm(instance=usuario)
-    return render(request, 'app_montauk/editar_perfil.html', {'formulario':formulario, 'usuario':usuario.username})
+    return render(request, 'editar_perfil.html', {'formulario':formulario, 'usuario':usuario.username})

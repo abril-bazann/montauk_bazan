@@ -11,16 +11,15 @@ urlpatterns = [
     path('contact/', contact, name= 'contact'),
     path('posts_viejos/', posts_viejos, name= 'posts_viejos'),
     
-    #path('post_formulario/', post_formulario, name= 'post_formulario'),
 #-------------------
     path('login/', login_request, name= 'login'),
     path('register/', register, name= 'register'),
-    path('logout/', LogoutView.as_view(template_name="app_montauk/logout.html"), name= 'logout'),
+    path('logout/', LogoutView.as_view(template_name="logout.html"), name= 'logout'),
 #------------------
     path('post/list/', post_list.as_view(), name= 'List'),
     path('post/<pk>/', post_detalle.as_view(), name= 'Detail'),
-    path('post/list/nuevo/', post_creacion.as_view(), name= 'Create'),
-    path('post/editar/<pk>', post_update.as_view(), name= 'Edit'),
-    path('post/borrar/<pk>', post_delete.as_view(), name= 'Delete'),
+    path('post/list/nuevo/', post_creacion.as_view(template_name="blog_form.html"), name= 'Create'),
+    path('post/editar/<pk>', post_update.as_view(template_name="blog_form.html"), name= 'Edit'),
+    path('post/borrar/<pk>', post_delete.as_view(template_name="blog_confirm_delete.html"), name= 'Delete'),
     
 ]

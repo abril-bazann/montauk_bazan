@@ -3,12 +3,12 @@ import email
 from wsgiref.util import request_uri
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from app_montauk.models import Avatar, Blog
+from app_montauk.models import Blog
 from django.http import HttpResponse
 from django.template import Context, Template, loader
 from datetime import datetime
 import datetime
-from app_montauk.forms import UserRegisterForm, UserEditForm, AvatarForm #Blog_form
+from app_montauk.forms import UserRegisterForm, UserEditForm #Blog_form
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
@@ -17,22 +17,22 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
-    return render(request, "app_montauk/inicio.html")
+    return render(request, "inicio.html")
 
 def ver_posts(request):
-    return render(request, "app_montauk/ver_posts.html")
+    return render(request, "ver_posts.html")
 
 def posts_viejos(request):
-    return render(request, "app_montauk/posts_viejos.html")
+    return render(request, "posts_viejos.html")
 
 def about(request):
-    return render(request, "app_montauk/about.html")
+    return render(request, "about.html")
 
 def post(request):
-    return render(request, "app_montauk/post.html")
+    return render(request, "post.html")
 
 def contact(request):
-    return render(request, "app_montauk/contact.html")
+    return render(request, "contact.html")
 
 def login_request(request):
     if request.method=="POST":
@@ -44,13 +44,13 @@ def login_request(request):
             usuario= authenticate(username=client, password=clave)
             if usuario is not None:
                 login(request, usuario)
-                return render(request, "app_montauk/inicio.html", {"mensaje":f"Hola {usuario} !"})
+                return render(request, "inicio.html", {"mensaje":f"Hola {usuario} !"})
             else:
-                return render(request, "app_montauk/inicio.html", {"mensaje":"Error; datos incorrectos"})
+                return render(request, "inicio.html", {"mensaje":"Error; datos incorrectos"})
         else:
-            return render(request, "app_montauk/inicio.html", {"mensaje":"Error; formulario erroneo"})
+            return render(request, "inicio.html", {"mensaje":"Error; formulario erroneo"})
     form= AuthenticationForm()
-    return render(request, "app_montauk/login.html", {"form":form})
+    return render(request, "login.html", {"form":form})
 
 def register(request):
     if request.method == 'POST':
@@ -59,22 +59,22 @@ def register(request):
             username = form.cleaned_data["username"]
 
             form.save()
-            return render(request, 'app_montauk/inicio.html', {'form':form,'mensaje':f"Usuario Creado:  {username}"})
+            return render(request, 'inicio.html', {'form':form,'mensaje':f"Usuario Creado:  {username}"})
     else:
         form = UserRegisterForm()
-    return render(request, 'app_montauk/registro.html', {'form': form})
+    return render(request, 'registro.html', {'form': form})
 
 def post(request):
-    return render(request, "app_montauk/post_detalle.html")
+    return render(request, "post_detalle.html")
 
 
 class post_list(ListView, LoginRequiredMixin):
     model=Blog
-    template_name="app_montauk/post_list.html"
+    template_name="post_list.html"
 
 class post_detalle(DetailView, LoginRequiredMixin):
     model= Blog
-    template_name= "app_montauk/post_detalle.html"
+    template_name= "post_detalle.html"
 
 class post_creacion(CreateView, LoginRequiredMixin):
     model=Blog

@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/infobae/ZVUBM4QHFVFM3AG6DVM74A354E.jpg');">     
+{% endblock %}
+{% block titulo %}
+   <h1>Editar perfil</h1>
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2 class="h2_editar_perfil">Editar perfil: {{ usuario }}</h2>
+    <form class="form_editar_perfil" action="{% url 'editar_perfil' %}" method="POST"> {% csrf_token %}
+        
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="submit" value="Editar perfil">
+
+    </form>
+{% endblock %} 

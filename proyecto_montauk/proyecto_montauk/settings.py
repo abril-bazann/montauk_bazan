@@ -60,7 +60,7 @@ ROOT_URLCONF = 'proyecto_montauk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/abril/OneDrive/Documentos/montauk_bazan/proyecto_montauk/templates/app_montauk/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

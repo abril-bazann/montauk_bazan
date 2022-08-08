@@ -4,4 +4,3 @@ from .models import *
 
 admin.site.register(Blog)
 admin.site.register(Pelicula)
-admin.site.register(Avatar)

@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://media1.sacurrent.com/sacurrent/imager/u/original/8556913/screen_shot_2018-01-09_at_4.50.17_pm.png');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Montauk Blog</h1>
+    <span class="subheading">Mirá lo que dicen los demás sobre tus películas favoritas y compartí lo tuyo.</span>  
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+        <span style="color: #fffefe;" class="span_ver_posts">
+            <div style="text-align: center;margin: 3rem;">
+                Para ver posts <a href="{% url 'register' %}"><mark>registrate</mark></a> o <a href="{% url 'login' %}"><mark>logueate</mark></a>
+            </div>
+        </span> 
+
+    
+{% endblock %}

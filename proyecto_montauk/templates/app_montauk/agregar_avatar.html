@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2021/11/avatar-2520685.jpg?itok=MiEsQQDh');">     
+{% endblock %}
+{% block titulo %}
+   <h1>Agregar avatar</h1>
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2 style="margin-left: 1rem;" class="h2_avatar">Agregar avatar a: {{ usuario }}</h2>
+    <form class="form_avatar" action="{% url 'agregar_avatar' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input class="btn_avatar" type="submit" value="Agregar">
+
+    </form>
+{% endblock %} 
