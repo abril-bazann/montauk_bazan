@@ -17,6 +17,7 @@
 
   
         <form style="color: #fffefe;display: flex; flex-direction: column;flex-wrap: nowrap;align-items: center;" method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.media }}
             {{ form.as_p }}
             <input class="btn btn-primary" type="submit" value="Enviar">
         </form>
