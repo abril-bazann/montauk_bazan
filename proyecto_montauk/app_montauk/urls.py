@@ -16,8 +16,6 @@ urlpatterns = [
     path('login/', login_request, name= 'login'),
     path('register/', register, name= 'register'),
     path('logout/', LogoutView.as_view(template_name="app_montauk/logout.html"), name= 'logout'),
-    path('editar_perfil/', editar_perfil, name= 'editar_perfil'),
-    path('agregar_avatar/', agregar_avatar, name= 'agregar_avatar'),
 #------------------
     path('post/list/', post_list.as_view(), name= 'List'),
     path('post/<pk>/', post_detalle.as_view(), name= 'Detail'),

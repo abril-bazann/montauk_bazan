@@ -67,42 +67,6 @@ def register(request):
 def post(request):
     return render(request, "app_montauk/post_detalle.html")
 
-@login_required
-def editar_perfil(request):
-    usuario=request.user
-    #si es metodo post hago lo mismo que al agregar
-    if request.method == 'POST':
-        formulario=UserEditForm(request.POST, instance=usuario)
-        if formulario.is_valid():
-            informacion=formulario.cleaned_data
-            #datos que se modifican
-            usuario.email=informacion['email']
-            usuario.password1=informacion['password1']
-            usuario.password2=informacion['password2']
-            usuario.save()
-            return render(request, 'app_montauk/inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
-    #en caso de q no sea post
-    else:
-        #creo form con los datos que voy a modificar
-        formulario=UserEditForm(instance=usuario)
-    return render(request, 'app_montauk/editar_perfil.html', {'formulario':formulario, 'usuario':usuario.username})
-
-
-#saco uno y pongo otro
-def agregar_avatar(request):
-    if request.method == 'POST':
-        formulario=AvatarForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            avatar_viejo=Avatar.objects.get(user=request.user)
-            if(avatar_viejo.imagen):
-                avatar_viejo.delete()
-            avatar=Avatar(user=request.user, imagen=formulario.cleaned_data['imagen'])
-            avatar.save()
-            return render(request, 'app_montauk/inicio.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
-    else:
-        formulario=AvatarForm()
-    return render(request, 'app_montauk/agregar_avatar.html', {'formulario':formulario, 'usuario':request.user})
-
 
 class post_list(ListView, LoginRequiredMixin):
     model=Blog
