@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'app_montauk',
     'app_profiles',
     'app_messages',
-    'app_login',
+    'login',
     'registro',
     'ckeditor',
 ]

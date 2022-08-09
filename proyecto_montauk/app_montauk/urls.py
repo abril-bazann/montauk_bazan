@@ -12,8 +12,7 @@ urlpatterns = [
     path('posts_viejos/', posts_viejos, name= 'posts_viejos'),
     
 #-------------------
-    path('accounts/login/', login_request, name= 'login'),
-    path('logout/', LogoutView.as_view(template_name="logout.html"), name= 'logout'),
+    
 #------------------
     path('post/list/', post_list.as_view(), name= 'List'),
     path('post/<pk>/', post_detalle.as_view(), name= 'Detail'),

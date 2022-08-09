@@ -34,23 +34,6 @@ def post(request):
 def contact(request):
     return render(request, "contact.html")
 
-def login_request(request):
-    if request.method=="POST":
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid:
-            client=request.POST ['username']
-            clave=request.POST ['password']
-
-            usuario= authenticate(username=client, password=clave)
-            if usuario is not None:
-                login(request, usuario)
-                return render(request, "inicio.html", {"mensaje":f"Hola {usuario} !"})
-            else:
-                return render(request, "inicio.html", {"mensaje":"Error; datos incorrectos"})
-        else:
-            return render(request, "inicio.html", {"mensaje":"Error; formulario erroneo"})
-    form= AuthenticationForm()
-    return render(request, "login.html", {"form":form})
 
 
 
