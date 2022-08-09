@@ -52,17 +52,7 @@ def login_request(request):
     form= AuthenticationForm()
     return render(request, "login.html", {"form":form})
 
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data["username"]
 
-            form.save()
-            return render(request, 'inicio.html', {'form':form,'mensaje':f"Usuario Creado:  {username}"})
-    else:
-        form = UserRegisterForm()
-    return render(request, 'registro.html', {'form': form})
 
 def post(request):
     return render(request, "post_detalle.html")

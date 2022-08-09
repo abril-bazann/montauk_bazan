@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_montauk',
-    'app_register',
     'app_profiles',
     'app_messages',
     'app_login',
+    'registro',
     'ckeditor',
 ]
 
