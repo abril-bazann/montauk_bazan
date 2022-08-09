@@ -1,5 +1,5 @@
 # Proyecto Montauk
-Montauk es una app web en la cual se pueden encontrar diversos blogs con temática de películas. También se encuentran las respectivas películas con su sinopsis, trailer y plataforma de stream.
+Montauk es una app web en la cual se pueden encontrar diversos blogs con temática de películas. 
 
 ----
 ## Creadora de la web y el proyecto: 
