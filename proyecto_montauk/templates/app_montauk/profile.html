@@ -1,0 +1,61 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F11%2F1920x1080-Capcom-HQ.jpg&f=1&nofb=1');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Mi perfil</h1>
+
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+    <div class="container mt-5">
+    
+        <div class="row d-flex justify-content-center">
+            
+            <div class="col-md-7">
+                
+                <div class="card p-3 py-4">
+                    
+                    <div class="text-center">
+                        <img src="{{ imagen }}" width="100" class="rounded-circle">
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <span class="bg-secondary p-1 px-4 rounded text-white">{{ user }}</span>
+                        <h5 class="mt-2 mb-0">{{user.first_name}} {{user.last_name}}</h5>
+                        
+                        <div class="px-4 mt-1">
+                            <p class="fonts"><i>{{user.profile.frase}}</i></p>
+                        
+                        </div>
+                        
+                        <div class="buttons">
+                            
+                            <button class="btn btn-outline-primary px-4">Message</button>
+                            
+
+                            <a href="{{user.profile.website}}"><button style="margin: 1rem;" class="btn btn-primary px-4 ms-3">Website</button></a>
+
+                            <a href="{% url 'editar_perfil' %}"><button style="margin: 1rem;" class="btn btn-primary px-4 ms-3">Editar perfil</button></a>
+                            <a href="{% url 'agregar_avatar' %}"><button class="btn btn-primary px-4 ms-3">Agregar avatar</button></a>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                   
+                    
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+{% endblock %}

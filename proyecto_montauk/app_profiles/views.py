@@ -15,6 +15,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+def perfil(request):
+    return render(request, "profile.html")
+
 #saco uno y pongo otro
 def agregar_avatar(request):
     if request.method == 'POST':
@@ -42,6 +45,8 @@ def editar_perfil(request):
             usuario.email=informacion['email']
             usuario.password1=informacion['password1']
             usuario.password2=informacion['password2']
+            usuario.frase=informacion['frase']
+            usuario.website=informacion['website']
             usuario.save()
             return render(request, 'inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
     #en caso de q no sea post
