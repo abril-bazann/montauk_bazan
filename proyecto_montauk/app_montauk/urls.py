@@ -14,9 +14,9 @@ urlpatterns = [
 #-------------------
     
 #------------------
-    path('post/list/', post_list.as_view(), name= 'List'),
-    path('post/<pk>/', post_detalle.as_view(), name= 'Detail'),
-    path('post/list/nuevo/', post_creacion.as_view(template_name="blog_form.html"), name= 'Create'),
+    path('pages/', post_list.as_view(), name= 'List'),
+    path('pages/<pk>/', post_detalle.as_view(), name= 'Detail'),
+    path('pages/nuevo/', post_creacion.as_view(template_name="blog_form.html"), name= 'Create'),
     path('post/editar/<pk>', post_update.as_view(template_name="blog_form.html"), name= 'Edit'),
     path('post/borrar/<pk>', post_delete.as_view(template_name="blog_confirm_delete.html"), name= 'Delete'),
     

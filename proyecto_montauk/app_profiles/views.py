@@ -3,7 +3,7 @@ import email
 from wsgiref.util import request_uri
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from app_profiles.models import Avatar
+from app_profiles.models import Avatar, Profile
 from django.http import HttpResponse
 from django.template import Context, Template, loader
 from datetime import datetime
@@ -17,6 +17,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def perfil(request):
     return render(request, "profile.html")
+
+def avatar(request):
+    lista=Avatar.objects.filter(user= request.user.id)
+    if (len(lista)!=0):
+        imagen=lista[0].imagen.url
+        return render(request, "inicio.html", {"imagen":imagen})
 
 #saco uno y pongo otro
 def agregar_avatar(request):
@@ -45,8 +51,8 @@ def editar_perfil(request):
             usuario.email=informacion['email']
             usuario.password1=informacion['password1']
             usuario.password2=informacion['password2']
-            usuario.frase=informacion['frase']
-            usuario.website=informacion['website']
+            usuario.profile.frase=informacion['frase']
+            usuario.profile.website=informacion['website']
             usuario.save()
             return render(request, 'inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
     #en caso de q no sea post
@@ -54,3 +60,7 @@ def editar_perfil(request):
         #creo form con los datos que voy a modificar
         formulario=UserEditForm(instance=usuario)
     return render(request, 'editar_perfil.html', {'formulario':formulario, 'usuario':usuario.username})
+
+def profile(request):
+    profile=Profile.objects.all()
+    return render(request, "profile.html", {"profile":profile})
