@@ -34,7 +34,10 @@ def post(request):
 def contact(request):
     return render(request, "contact.html")
 
-
+def post_img(request):
+    imagen_blog=Blog.objects.filter(user= request.user.id)[0].imagen_blog.url
+    img=Blog.objects.all()
+    return render(request, "post.html", {"img":img, "imagen_blog":imagen_blog})
 
 
 def post(request):
@@ -52,14 +55,14 @@ class post_detalle(DetailView, LoginRequiredMixin):
 class post_creacion(CreateView, LoginRequiredMixin):
     model=Blog
     success_url= reverse_lazy('List') #reverse_lazy: a donde va a ir cuando termine la creacion
-    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen']
+    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen_blog']
 
 class post_update(UpdateView, LoginRequiredMixin):
     model=Blog
     success_url= reverse_lazy('List') #reverse_lazy: a donde va a ir cuando termine la creacion
-    fields=['titulo', 'subtitulo', 'cuerpo', 'autor', 'fecha', 'imagen']
+    fields=['titulo', 'subtitulo', 'cuerpo', 'autor', 'fecha', 'imagen_blog']
 
 class post_delete(DeleteView, LoginRequiredMixin):
     model=Blog
     success_url= reverse_lazy('List') 
-    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen']
+    fields=['titulo', 'subtitulo','cuerpo', 'autor', 'fecha', 'imagen_blog']

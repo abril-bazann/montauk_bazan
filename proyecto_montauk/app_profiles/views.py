@@ -14,6 +14,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 def perfil(request):
     return render(request, "profile.html")
@@ -62,5 +63,6 @@ def editar_perfil(request):
     return render(request, 'editar_perfil.html', {'formulario':formulario, 'usuario':usuario.username})
 
 def profile(request):
+    imagen=Avatar.objects.filter(user= request.user.id)[0].imagen.url
     profile=Profile.objects.all()
-    return render(request, "profile.html", {"profile":profile})
+    return render(request, "profile.html", {"profile":profile, "imagen":imagen})

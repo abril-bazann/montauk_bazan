@@ -8,7 +8,7 @@ class Blog_form(forms.Form):
     cuerpo= forms.CharField(widget=forms.Textarea) 
     autor= forms.CharField(max_length=50) 
     fecha=forms.DateField()
-    imagen= forms.ImageField(label="Imagen", required=False)
+    imagen_blog= forms.ImageField(label="Imagen", required=False)
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()

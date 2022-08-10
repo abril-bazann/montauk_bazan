@@ -9,7 +9,7 @@ class Blog(models.Model):
     #cuerpo= models.TextField()
     autor= models.CharField(max_length=50) 
     fecha=models.DateField()
-    imagen= models.ImageField(upload_to='imagen_blog', null=True, blank=True)
+    imagen_blog= models.ImageField(upload_to='imagen_blog', null=True, blank=True)
 
     def __str__(self):
         return self.titulo+" - "+self.autor
