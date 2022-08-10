@@ -1,0 +1,38 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://static.misionesonline.news/wp-content/uploads/2022/05/rsz_top_gun-imax.jpg');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Películas Montauk</h1>
+
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for pelicula in peliculas %}
+
+    <div class="div_post_list">
+        <ul class="ul_post_list" style="color: #fffefe; list-style: none;">
+            <li style="color: #fffefe; border-bottom: 1px solid #456;letter-spacing: .075em;
+            margin-bottom: 0.76923077rem;margin-top: 0; padding-bottom: 5px; text-transform: initial;">
+            {{ pelicula }}
+            <p>
+                <a style="color: #bee1fd;" href="{% url 'pelicula_detail' pelicula.id %}">Leer más</a>
+                <a style="color: #bee1fd;" href="{% url 'pelicula_edit' pelicula.id %}">Edit</a>
+                <a style="color: #bee1fd;" href="{% url 'pelicula_delete' pelicula.id %}">Delete</a>
+            </p>
+            </li>
+        </ul>
+    </div>
+    
+    
+{% endfor %}
+
+<div class="div_nuevo">
+    <a class="btn btn-primary" href="{% url 'pelicula_create' %}">Agregar una pelicula nueva</a>
+</div>
+
+{% endblock %}

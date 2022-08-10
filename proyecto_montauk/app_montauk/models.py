@@ -17,12 +17,13 @@ class Blog(models.Model):
 class Pelicula(models.Model):
     nombre= models.CharField(max_length=50)
     anio= models.IntegerField()
+    sinopsis=RichTextField(blank=True, null=True)
     director= models.CharField(max_length=50) 
     ver=models.URLField(max_length=50)
     poster= models.ImageField(upload_to='poster_pelicula', null=True, blank=True)
 
     def __str__(self):
-        return self.nombre+" - "+self.director+" - "+self.anio
+        return self.nombre+" - "+self.director
 
 
 

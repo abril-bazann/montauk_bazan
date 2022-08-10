@@ -18,6 +18,7 @@
         margin-bottom: 0.76923077rem;margin-top: 0; padding-bottom: 5px; text-transform: initial;">
         <a href="{% url 'Detail' post.id %}" style="color: #fffefe;"><i class="bi bi-arrow-right-short">&#x2192</i>{{ post }}</a>
         <p>
+            <a style="color: #bee1fd;" href="{% url 'Detail' post.id %}">Leer más</a>
             <a style="color: #bee1fd;" href="{% url 'Edit' post.id %}">Edit</a>
             <a style="color: #bee1fd;" href="{% url 'Delete' post.id %}">Delete</a>
         </p>

@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('https://www.xtrafondos.com/wallpapers/loki-marvel-future-revolution-9003.jpg');">     
+{% endblock %}
+{% block titulo %}
+
+   <h1>Eliminar pelicula</h1>
+
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<form style="color: #fffefe;" method="post">{% csrf_token %}
+    ¿Estás seguro que deseas eliminar la pelicula "{{ object }}"?
+    <input type="submit" value="Sí">
+</form>
+
+
+{% endblock %}

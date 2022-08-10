@@ -10,6 +10,15 @@ class Blog_form(forms.Form):
     fecha=forms.DateField()
     imagen_blog= forms.ImageField(label="Imagen", required=False)
 
+class Pelicula_form(forms.Form):
+    nombre= forms.CharField(max_length=50)
+    anio= forms.IntegerField(label="año de lanzamiento")
+    sinopsis=forms.CharField(widget=forms.Textarea)
+    director= forms.CharField(max_length=50) 
+    ver=forms.URLField(max_length=50)
+    poster= forms.ImageField(label="poster", required=False)
+
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
