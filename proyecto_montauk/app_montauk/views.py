@@ -76,17 +76,17 @@ class pelicula_detalle(DetailView, LoginRequiredMixin):
 
 class pelicula_creacion(CreateView, LoginRequiredMixin):
     model=Pelicula
-    success_url= reverse_lazy('pelicula_list') #reverse_lazy: a donde va a ir cuando termine la creacion
+    success_url= reverse_lazy('leer_peliculas') #reverse_lazy: a donde va a ir cuando termine la creacion
     fields=['nombre', 'anio', 'sinopsis','director', 'ver', 'poster']
 
 class pelicula_update(UpdateView, LoginRequiredMixin):
     model=Pelicula
-    success_url= reverse_lazy('pelicula_list') #reverse_lazy: a donde va a ir cuando termine la creacion
+    success_url= reverse_lazy('leer_peliculas') #reverse_lazy: a donde va a ir cuando termine la creacion
     fields=['nombre', 'anio', 'sinopsis','director', 'ver', 'poster']
 
 class pelicula_delete(DeleteView, LoginRequiredMixin):
     model=Pelicula
-    success_url= reverse_lazy('pelicula_list') 
+    success_url= reverse_lazy('leer_peliculas') 
     fields=['nombre', 'anio', 'sinopsis','director', 'ver', 'poster']
 
 
