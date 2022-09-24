@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block imagen_fondo %}
+   <header class="masthead" style="background-image: url('http://cdn.upsocl.com/wp-content/uploads/2018/07/sdfsdfdfd.jpg');">     
+{% endblock %}
+{% block titulo %}
+   <h1>Editar pelicula</h1> 
+    </header>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if formulario.errors %}
+ <p style="color:red">HAY ALGO MAL EN EL FORMULARIO</p>
+{% endif %}
+
+<form action="{% url 'editar_pelicula' nombre_pelicula %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+    <table>
+        {{ form.media }}
+        {{ formulario.as_table }}
+    </table>
+
+    <!--- -->
+    <input type="submit" value="Enviar">
+
+
+</form>
+
+{% endblock %}

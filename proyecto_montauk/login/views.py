@@ -26,10 +26,10 @@ def login_request(request):
             usuario= authenticate(username=client, password=clave)
             if usuario is not None:
                 login(request, usuario)
-                return render(request, "inicio.html", {"mensaje":f"Hola {usuario} !"})
+                return render(request, "index.html", {"mensaje":f"Hola {usuario} !"})
             else:
-                return render(request, "inicio.html", {"mensaje":"Error; datos incorrectos"})
+                return render(request, "index.html", {"mensaje":"Error; datos incorrectos"})
         else:
-            return render(request, "inicio.html", {"mensaje":"Error; formulario erroneo"})
+            return render(request, "index.html", {"mensaje":"Error; formulario erroneo"})
     form= AuthenticationForm()
     return render(request, "login.html", {"form":form})

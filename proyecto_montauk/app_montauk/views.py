@@ -17,7 +17,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
-    return render(request, "inicio.html")
+    return render(request, "index.html")
 
 def ver_posts(request):
     return render(request, "ver_posts.html")

@@ -23,7 +23,7 @@ def avatar(request):
     lista=Avatar.objects.filter(user= request.user.id)
     if (len(lista)!=0):
         imagen=lista[0].imagen.url
-        return render(request, "inicio.html", {"imagen":imagen})
+        return render(request, "index.html", {"imagen":imagen})
 
 #saco uno y pongo otro
 def agregar_avatar(request):
@@ -35,7 +35,7 @@ def agregar_avatar(request):
                 avatar_viejo.delete()
             avatar=Avatar(user=request.user, imagen=formulario.cleaned_data['imagen'])
             avatar.save()
-            return render(request, 'inicio.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
+            return render(request, 'index.html', {'usuario':request.user, 'mensaje':'AVATAR AGREGADO EXITOSAMENTE'})
     else:
         formulario=AvatarForm()
     return render(request, 'agregar_avatar.html', {'formulario':formulario, 'usuario':request.user})
@@ -55,7 +55,7 @@ def editar_perfil(request):
             usuario.profile.frase=informacion['frase']
             usuario.profile.website=informacion['website']
             usuario.save()
-            return render(request, 'inicio.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
+            return render(request, 'index.html', {'usuario':usuario, 'mensaje':'PERFIL EDITADO EXITOSAMENTE'})
     #en caso de q no sea post
     else:
         #creo form con los datos que voy a modificar
