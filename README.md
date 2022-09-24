@@ -12,6 +12,8 @@ Link hacia el Unit Test: https://docs.google.com/spreadsheets/d/1-flV40y13F11KH0
 # Funcionamiento de la web
 Link hacia el video que demuestra el funcionamiento de la web: https://drive.google.com/file/d/1SuSCDkNZtDoOohgQdyiW4dGyrICb6fp3/view?usp=sharing
 
-Superuser de Django administration:
+## Superuser de Django administration:
 user: abril
+
+
 password: montauk
